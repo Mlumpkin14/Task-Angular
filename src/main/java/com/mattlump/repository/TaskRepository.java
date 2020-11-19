@@ -1,4 +1,8 @@
 package com.mattlump.repository;
 
-public interface TaskRepository {
+import com.mattlump.model.Task;
+import org.springframework.data.repository.CrudRepository;
+
+public interface TaskRepository extends CrudRepository<Task, Long> {
+
 }
