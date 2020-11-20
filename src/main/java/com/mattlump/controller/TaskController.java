@@ -2,9 +2,7 @@ package com.mattlump.controller;
 
 import com.mattlump.model.Task;
 import com.mattlump.service.TaskService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/tasks")
@@ -18,7 +16,12 @@ public class TaskController {
 
     @GetMapping(value =  {"", "/"})
     public Iterable<Task> list(){
-        return null;
+        return this.taskService.list();
+    }
+
+    @PostMapping("/save")
+    public Task saveTask(@RequestBody Task task){
+        return this.taskService.save(task);
     }
 
 }
